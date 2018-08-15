@@ -1,9 +1,7 @@
 ---
 title: "On Brain Teasers at Job Interviews"
 date: 2017-06-26T13:08:07+03:00
-draft: false
 ---
-
 
 I went to a few job interviews during past weeks. Most interviewers asked me to
 tell about problems I had solved, and to suggest a solution to a problem they

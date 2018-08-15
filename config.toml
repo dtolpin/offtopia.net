@@ -2,3 +2,20 @@ baseURL = "http://dtolpin.github.io/"
 languageCode = "en-us"
 title = "Offtopia — nothing personal"
 theme = "offtopia"
+
+# Pagination
+paginate = 3
+paginatePath = "page"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[params]
+    mainSections = ["posts"]
+    author = "David Tolpin"
+
+[[menu.main]]
+    url = "/about/"
+    name = "About"
+    weight = 2

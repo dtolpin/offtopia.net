@@ -1,7 +1,5 @@
 ---
 title: "About"
-date: 2018-08-15T18:21:55+03:00
-draft: false
 ---
 
 Offtopia is a non-personal blog of David Tolpin.
