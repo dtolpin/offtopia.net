@@ -24,6 +24,8 @@ Here is how the latter case rolls out:
 > tweaking. We bring a _data scientist_. The data scientist
 > will add machine learning to our software.
 
+<img style="float: right; width: 40%" src="/images/hug.jpg" />
+
 Bringing a data scientist to the team may be tough — on both the
 team and the data scientist. A simple reason is that the data
 scientist may not be skilled enough in software development. But
