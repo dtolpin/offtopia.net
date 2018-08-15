@@ -7,3 +7,6 @@
 [submodule "themes/hugo-bootstrap"]
 	path = themes/hugo-bootstrap
 	url = git@github.com:Xzya/hugo-bootstrap.git
+[submodule "themes/offtopia"]
+	path = themes/offtopia
+	url = git@github.com:dtolpin/hugo-theme-offtopia.git
