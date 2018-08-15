@@ -1,0 +1,9 @@
+[submodule "themes/theer"]
+	path = themes/theer
+	url = https://github.com/ghoostqq/theer.git
+[submodule "public"]
+	path = public
+	url = ssh://git@github.com/dtolpin/dtolpin.github.io
+[submodule "themes/hugo-bootstrap"]
+	path = themes/hugo-bootstrap
+	url = git@github.com:Xzya/hugo-bootstrap.git
