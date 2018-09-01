@@ -95,11 +95,31 @@ but $\alpha_i + \beta_i$ is equal to $C$ (Algorithm 2).
 </p>
 ******
 
+The animation below shows running the model on 1000 visits,
+where the average number of pages per visit gradually decreases
+from 5 to 1. Note how the mean gradually and smoothly follows
+the trend, despite very noisy data. $C$ was set to 1000.
+
+<img style="width: 95%" src="/images/pages-per-visit/FAKE-1000.gif" />
+
 Obviously, we do not know the value of $C$ and want to infer
-$C$ for each campaign based on observed pages-per-visit counts.
+$C$ for each campaign based on observed pages-per-visit counts. 
+The right value of $C$ is crucial for the best forecasting
+performance, notice how a smaller value of $C$ ($C=30$) affects
+prediction of the number of pages per visit on the same data:
+
+<img style="width: 95%" src="/images/pages-per-visit/FAKE-30.gif" />
+
+	
 We turn to [probabilistic programming](http://www.probabilistic-programming.org/wiki/Home) for this task, putting a
 prior on $C$ and running the inference on the history of
-pages-per-visit observations.
+pages-per-visit observations. We then infer the posterior
+distribution of $C$, and use the mean of the posterior for
+forecasting. An example of predicted $C$ values is in the
+histogram below.
+
+<img style="width: 95%" src="/images/pages-per-visit/FAKE-bandwidth.gif" />
+
 
 ## Probabilistic programs
 
@@ -109,7 +129,7 @@ The code of the programs is at [bitbucket.org/probprog/ppv-pp-paper](http://bitb
 
 For prototyping, we used [Anglican](http://anglican.ml). The model is straightforward
 to implement in Anglican, a Lisp dialect. Since we only have a
-single random variable to infer, Metropolis-Hastings Monte Carlo
+single random variable to infer, [Metropolis-Hastings Monte Carlo](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm)
 performs well, and Anglican runtime is fast enough to produce
 10 000 samples in 45 seconds, given 100 observations.  However,
 there were reasons that prevented us from using Anglican in
@@ -139,8 +159,8 @@ of leaving the campaign at each page does not depend on the
 updated beliefs for earlier pages. However, we still need to pass
 the data twice --- both to the model and to inference.
 
-Edward supports both Metropolis-Hastings and variational
-inference. Metropolis-Hastings gave results consistent with the
+Edward supports both Metropolis-Hastings and [variational
+inference](https://en.wikipedia.org/wiki/Variational_Bayesian_methods). Metropolis-Hastings gave results consistent with the
 Anglican implementation. One would expect static graph,
 C++-based implementation of Metropolis-Hastings to run much
 faster than in Anglican, however due to complex code having
@@ -178,6 +198,13 @@ similar accuracy.
 The Go implementation is at
 [http://bitbucket.org/dtolpin/pps](http://bitbucket.org/dtolpin/pps).
 
+The implementation produces 10 000 samples for <b>1000</b>
+observations (<b>ten times more data</b> than for probabilistic
+programs) in less than a second, and the simulator runs
+blazingly fast. Animation gifs in this post were produced using
+the Go program, it would take too long to generate them with
+other tools.
+
 ## Round-up
 
 For deployment in production, we implemented a custom solution
@@ -194,7 +221,7 @@ missing in many of the implementations.
 *  Data structures must transparently support [persistent
   updating and manipulation](http://www.cs.cmu.edu/~rwh/theses/okasaki.pdf)
   along with high-performance.
-*  Automatic differentiation algorithms which
+*  [Automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) algorithms which
   work well for deep learning are not necessarily good enough
   for probabilistic programming.
 *  Small programs must run with acceptable performance.
