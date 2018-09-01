@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Offtopia — nothing personal</title>
+    <link>http://dtolpin.github.io/posts/</link>
+    <description>Recent content in Posts on Offtopia — nothing personal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Aug 2018 22:49:53 +0300</lastBuildDate>
+    
+	<atom:link href="http://dtolpin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Small Program Can Be a Big Challenge</title>
+      <link>http://dtolpin.github.io/posts/pages-per-visit/</link>
+      <pubDate>Wed, 15 Aug 2018 22:49:53 +0300</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/pages-per-visit/</guid>
+      <description>A good part of today&amp;rsquo;s internet content is created and shaped for delivering advertisements. Internet articles are split into pages stitched by forward links, so that the visitor reads the article in multiple steps in a fixed order, and advertisements can be shown on every page. In a lucky case for the publisher, the visitor clicks through the full article, eventually reaching the last page. Most visitors though leave in the middle of an article, either due to clicking on an advertising or just because they get bored and switch to other content or activity.</description>
+    </item>
+    
+    <item>
+      <title>How to Hug a Data Scientist</title>
+      <link>http://dtolpin.github.io/posts/how-to-hug/</link>
+      <pubDate>Mon, 09 Apr 2018 14:19:13 +0300</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/how-to-hug/</guid>
+      <description>Sometimes, a data scientist is the first engineer in a software project. More often though a data scientist joins the team when there is working code, ready for deploying or even deployed. Here is how the latter case rolls out:
+ We write a piece of software. Thanks to continous delivery, we fix our bugs quickly and release new improved versions on time. Our code is fully tested, easy to change, and pieces fit each other smoothly.</description>
+    </item>
+    
+    <item>
+      <title>On Brain Teasers at Job Interviews</title>
+      <link>http://dtolpin.github.io/posts/on-brain-teasers/</link>
+      <pubDate>Mon, 26 Jun 2017 13:08:07 +0300</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/on-brain-teasers/</guid>
+      <description>I went to a few job interviews during past weeks. Most interviewers asked me to tell about problems I had solved, and to suggest a solution to a problem they really needed to solve. Some though offered me to solve brain teasers — problems they (or others) invented to test candidates. I solved most, but I felt bad about it. I can imagine many bright candidates who would fail an interview because of brain teasers.</description>
+    </item>
+    
+  </channel>
+</rss>
