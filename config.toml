@@ -2,6 +2,7 @@ baseURL = "http://dtolpin.github.io/"
 languageCode = "en-us"
 title = "Offtopia — nothing personal"
 theme = "offtopia"
+pygmentsStyle = "friendly"
 
 # Pagination
 paginate = 3

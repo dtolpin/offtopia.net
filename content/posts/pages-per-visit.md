@@ -2,7 +2,7 @@
 title: "A Small Program Can Be a Big Challenge"
 subtitle: "A probabilistic model for pages-per-visit"
 date: 2018-08-15T22:49:53+03:00
-draft: true
+draft: false
 ---
 
 A good part of today's internet content is created and shaped for delivering
@@ -123,7 +123,7 @@ histogram below.
 
 ## Probabilistic programs
 
-The code of the programs is at [bitbucket.org/probprog/ppv-pp-paper](http://bitbucket.org/probprog/ppv-pp-paper).
+> The program code is at [bitbucket.org/probprog/ppv-pp-paper](http://bitbucket.org/probprog/ppv-pp-paper), in the `notebooks` folder.
 
 ### Prototype in Anglican
 
@@ -195,12 +195,70 @@ similar accuracy.
 
 ## Final Solution: A Go Program
 
-The Go implementation is at
+> The full Go implementation is at
 [http://bitbucket.org/dtolpin/pps](http://bitbucket.org/dtolpin/pps).
 
+
+[Go](https://golang.org/) is a (relatively) new programming
+language from Google. Recently, Go is increasingly used for
+[machine learning and data
+science](https://www.oreilly.com/ideas/data-science-gophers).
+We implemented the model in Go and manually coded a simple
+version of Metropolis-Hastings inference algorithm. The
+implementation came out amazingly lean and simple:
+
+******
+#### Updating beliefs
+******
+{{< highlight go "linenos=table" >}}
+func (m *Model) Update(bandwidth float64, count int) {
+    for i := 0; i != len(m.Beliefs); i++ {
+        var j int // selects either alpha or beta
+        if i < count-1 {
+            j = 1
+        } else {
+            j = 0
+        }
+        m.Beliefs[i][j]++
+        // if the evidence exceeds the bandwidth, scale down
+        evidence := m.Beliefs[i][0] + m.Beliefs[i][1]
+        if evidence > bandwidth {
+            scale := bandwidth / evidence
+            m.Beliefs[i][0] *= scale
+            m.Beliefs[i][1] *= scale
+        }
+        if j == 0 { // reached the last page of the session
+            break
+        }
+    }
+}
+{{< / highlight >}}
+
+******
+#### Metropolis-Hastings sampling
+******
+{{< highlight go "linenos=table" >}}
+func MH(query Query, proposal Proposal, x float64, samples chan<- float64) {
+    logp := query.Observe(x)
+    for {
+        samples <- x
+        x0, logp0 := x, logp
+        x = proposal.Propose(x)
+        logp = query.Observe(x)
+        if logp-logp0 < math.Log(1.-rand.Float64()) {
+            x, logp = x0, logp0
+        }
+    }
+}
+{{< / highlight >}}
+******
+
+
+
+
 The implementation produces 10 000 samples for <b>1000</b>
-observations (<b>ten times more data</b> than for probabilistic
-programs) in less than a second, and the simulator runs
+observations (<b>ten times more data</b> than for the probabilistic
+programs above) in less than a second, and the simulator runs
 blazingly fast. Animation gifs in this post were produced using
 the Go program, it would take too long to generate them with
 other tools.
@@ -210,9 +268,9 @@ other tools.
 For deployment in production, we implemented a custom solution
 in Go, which is fast and works well for our current setup.  The
 performance is much better than of any probabilistic system's
-implementation — only Anglican's running time is within an order
-of magnitude.  However, this impedes our ability to extend the
-probabilistic model and scale to larger amounts of data.
+implementation.  However, this impedes our
+ability to extend the probabilistic model to encounter for
+other factors and dependencies.
 
 This case study points at properties of probabilistic
 programming systems which are crucial for adoption but
