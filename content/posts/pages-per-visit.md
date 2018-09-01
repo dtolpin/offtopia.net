@@ -278,7 +278,7 @@ missing in many of the implementations.
 
 *  Data structures must transparently support [persistent
   updating and manipulation](http://www.cs.cmu.edu/~rwh/theses/okasaki.pdf)
-  along with high-performance.
+  along with high performance.
 *  [Automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) algorithms which
   work well for deep learning are not necessarily good enough
   for probabilistic programming.
