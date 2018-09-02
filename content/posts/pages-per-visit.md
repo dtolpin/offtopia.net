@@ -109,7 +109,6 @@ performance, notice how a smaller value of $C$ ($C=30$) affects
 prediction of the number of pages per visit on the same data:
 
 <img style="width: 95%" src="/images/pages-per-visit/FAKE-30.gif" />
-
 	
 We turn to [probabilistic programming](http://www.probabilistic-programming.org/wiki/Home) for this task, putting a
 prior on $C$ and running the inference on the history of
@@ -119,7 +118,6 @@ forecasting. An example of predicted $C$ values is in the
 histogram below.
 
 <img style="width: 95%" src="/images/pages-per-visit/FAKE-bandwidth.gif" />
-
 
 ## Probabilistic programs
 
@@ -198,7 +196,6 @@ similar accuracy.
 > The full Go implementation is at
 [http://bitbucket.org/dtolpin/pps](http://bitbucket.org/dtolpin/pps).
 
-
 [Go](https://golang.org/) is a (relatively) new programming
 language from Google. Recently, Go is increasingly used for
 [machine learning and data
@@ -252,9 +249,6 @@ func MH(query Query, proposal Proposal, x float64, samples chan<- float64) {
 }
 {{< / highlight >}}
 ******
-
-
-
 
 The implementation produces 10 000 samples for <b>1000</b>
 observations (<b>ten times more data</b> than for the probabilistic
