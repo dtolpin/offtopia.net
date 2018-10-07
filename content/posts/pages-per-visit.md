@@ -5,6 +5,8 @@ date: 2018-08-15T22:49:53+03:00
 draft: false
 ---
 
+\[Poster: [html](http://offtopia.net/ppv-pp-poster/), [pdf](http://offtopia.net/ppv-pp-poster/poster.pdf)\]
+
 A good part of today's internet content is created and shaped for delivering
 advertisements. Internet articles are split into pages stitched by forward
 links, so that the visitor reads the article in multiple steps in a fixed
@@ -32,7 +34,7 @@ A sequence of [Beta-Bernoulli distributions](https://en.wikipedia.org/wiki/Beta-
 gives a reasonable generative model for the number of pages per
 visit. There are of course dependencies between pages --- a user
 which is likely to leave on a certain page is also likely to
-leave on `similar' pages, --- but we can ignore these
+leave on 'similar' pages, --- but we can ignore these
 dependencies in an initial approximation. One phenomenon
 should be accounted for though --- content managers
 occasionally change the order and content of pages. The
@@ -129,7 +131,7 @@ For prototyping, we used [Anglican](http://anglican.ml). The model is straightfo
 to implement in Anglican, a Lisp dialect. Since we only have a
 single random variable to infer, [Metropolis-Hastings Monte Carlo](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm)
 performs well, and Anglican runtime is fast enough to produce
-10 000 samples in 45 seconds, given 100 observations.  However,
+10,000 samples in 8 seconds, given 100 observations.  However,
 there were reasons that prevented us from using Anglican in
 production, and we turned to other probabilistic programming
 environments.
@@ -163,8 +165,8 @@ Anglican implementation. One would expect static graph,
 C++-based implementation of Metropolis-Hastings to run much
 faster than in Anglican, however due to complex code having
 to go through tensor manipulations, the performance was quite
-poor --- Edward draws 10 000 samples in 350 seconds, more than
-7 times slower than Anglican. At the time of writing, the
+poor --- Edward draws 10,000 samples in about 6 minutes, more than
+50 times slower than Anglican. At the time of writing, the
 implementation of variational inference in Edward has a
 limitation preventing its application to our model.
 
@@ -179,8 +181,8 @@ with other approaches.
 We first ran the inference with importance sampling, which gave
 acceptable results, partially because our prior on $C$ was close
 to the posterior. However, the running times were even longer
-than with Edward: it takes more than 10 <i>minutes</i> for Pyro to draw
-10 000 samples. We then turned to variational inference, only
+than with Edward: it takes more than 10 minutes for Pyro to draw
+10,000 samples. We then turned to variational inference, only
 to discover that the model would have to be rewritten: since gradients
 are computed by the underlying [PyTorch](http://pytorch.org) code,
 all involved computations must be expressed as non-destructive
@@ -250,7 +252,7 @@ func MH(query Query, proposal Proposal, x float64, samples chan<- float64) {
 {{< / highlight >}}
 ******
 
-The implementation produces 10 000 samples for <b>1000</b>
+The implementation produces 10,000 samples for <b>1000</b>
 observations (<b>ten times more data</b> than for the probabilistic
 programs above) in less than a second, and the simulator runs
 blazingly fast. Animation gifs in this post were produced using
