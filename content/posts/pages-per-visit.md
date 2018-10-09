@@ -121,7 +121,7 @@ histogram below.
 
 ## Probabilistic programs
 
-> The program code is at [bitbucket.org/probprog/ppv-pp-paper](http://bitbucket.org/probprog/ppv-pp-paper), in the `worksheets:` folder.
+> The program code is at [bitbucket.org/probprog/ppv-pp-paper](http://bitbucket.org/probprog/ppv-pp-paper), in the `worksheets` folder.
 
 ### Prototype in Anglican
 
