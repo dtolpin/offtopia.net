@@ -1,12 +1,16 @@
-[submodule "themes/theer"]
-	path = themes/theer
-	url = https://github.com/ghoostqq/theer.git
 [submodule "public"]
 	path = public
 	url = ssh://git@github.com/dtolpin/dtolpin.github.io
+	branch = master
+[submodule "themes/theer"]
+	path = themes/theer
+	url = https://github.com/ghoostqq/theer.git
+	branch = master
 [submodule "themes/hugo-bootstrap"]
 	path = themes/hugo-bootstrap
 	url = git@github.com:Xzya/hugo-bootstrap.git
+	branch = master
 [submodule "themes/offtopia"]
 	path = themes/offtopia
 	url = git@github.com:dtolpin/hugo-theme-offtopia.git
+	branch = master
