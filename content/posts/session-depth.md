@@ -1,59 +1,59 @@
 ---
 title: "A Small Program Can Be a Big Challenge"
-subtitle: "A probabilistic model for pages-per-visit"
+subtitle: "A probabilistic model for session depth estimation"
 date: 2018-08-15T22:49:53+03:00
 draft: false
 ---
 
 \[Poster: [html](http://offtopia.net/ppv-pp-poster/), [pdf](http://offtopia.net/ppv-pp-poster/poster.pdf)\]
 
-A good part of today's internet content is created and shaped for delivering
-advertisements. Internet articles are split into pages stitched by forward
-links, so that the visitor reads the article in multiple steps in a fixed
-order, and advertisements can be shown on every page. In a lucky case
-for the publisher, the visitor clicks through the full article, eventually
-reaching the last page. Most visitors though leave in the middle of an article,
-either due to clicking on an advertising or just because they get bored
-and switch to other content or activity.
+A good part of today's internet content is created and shaped
+for delivering advertisements. Internet pages are interconnected
+by links, and a visitor is likely to open multiple pages from
+same publisher.  After a while, visitors leave the web site,
+either due to clicking on an advertisement or just because they
+get bored and switch to other content or activity.
 
-The distribution of the number of pages per visit is an important
-metric for the publisher. It is used to both estimate revenues
-from the advertising campaign and to optimize the article: order
-of pages, page content, and advertisements appearing on each
-page. Pages per visit constitute a counting time series.
-There are established techniques for forecasting in counting time
-series, however those techniques are mostly based on assumption
-that the time series realizes a unimodal distribution at
-every point in time, such as the [Poisson](https://en.wikipedia.org/wiki/Poisson_distribution) or the [Geometric
-distribution](https://en.wikipedia.org/wiki/Geometric_distribution). This assumption is inadequate for pages-per-visit
-time series: there are usually several points in the article
-where the visitor is very likely to leave; this commands a
-multi-modal predictive distribution.
+The probability distribution of the _session depth_ — the number
+of pages opened during a single visit — is an important metric
+for the publisher. It is used both to estimate revenues from the
+advertising campaign and to optimize the web site: links between
+pages, page content, and advertisements appearing on each page.
+Session depth constitutes a counting time series.  There are
+established techniques for forecasting in counting time series,
+however those techniques are mostly based on assumption that the
+time series realizes a unimodal distribution at every point in
+time, such as the
+[Poisson](https://en.wikipedia.org/wiki/Poisson_distribution) or
+the [Geometric
+distribution](https://en.wikipedia.org/wiki/Geometric_distribution).
+This assumption is inadequate for session depth time series:
+there are usually multiple pages where the visitor is most
+likely to leave; this commands a multi-modal predictive
+distribution.
 
-A sequence of [Beta-Bernoulli distributions](https://en.wikipedia.org/wiki/Beta-binomial_distribution), one for each page,
-gives a reasonable generative model for the number of pages per
-visit. There are of course dependencies between pages --- a user
-which is likely to leave on a certain page is also likely to
-leave on 'similar' pages, --- but we can ignore these
-dependencies in an initial approximation. One phenomenon
-should be accounted for though --- content managers
-occasionally change the order and content of pages. The
-posterior distribution should incorporate uncertainty due
-to such changes.
+A sequence of [Beta-Bernoulli
+distributions](https://en.wikipedia.org/wiki/Beta-binomial_distribution),
+one for each page, gives a reasonable generative model for
+session depth.  There are of course dependencies between pages
+— a user which is likely to leave on a certain page is also
+likely to leave on 'similar' pages, — but we can ignore these
+dependencies in an initial approximation. One phenomenon should
+be accounted for though — the website evolves as new pages are
+published, existing pages edited, and links between pages are added 
+or removed.  The posterior distribution should incorporate
+uncertainty due to such changes.
 
 ## The Generative Model of a Visit
 
-We view an article as a sequence of pages of length $N$.
+We view a visit as a sequence of opened pages of length at most $N$.
 A Beta-Bernoulli distribution $Beta\mbox{-}Bernoulli(\alpha_i, \beta_i)$
 for the $i$th page for each $i \in \{1, \ldots, N\}$ models the
-event of leaving after visiting the page. (The probability of leaving
-after the last page is 1 here, however in reality the visitor
-can occasionally continue to another article on the same site, which should
-be taken into account.)  We draw the number of pages per visit
+event of leaving after visiting the page.  We draw the session depth
 by passing through the sequence until the ‘left’ event (Algorithm 1).
 
 ******
-<b>Algorithm 1:</b> Drawing the number of pages per visit
+<b>Algorithm 1:</b> Drawing the session depth
 ******
 <p style="white-space: pre; font-family: Monospace"
 >     1		<b>for</b> $i = 1$ <b>to</b> $N$ <b>do</b>
@@ -66,7 +66,7 @@ by passing through the sequence until the ‘left’ event (Algorithm 1).
 </p>
 ******
 
-To update the beliefs based on the observed number of pages $K$, we
+To update the beliefs based on the observed session depth $K$, we
 just increment $\beta_i$ if the visitor continued to the next
 page, that is $i < K$, or $\alpha_i$ if the visitor left at the
 $i$th page ($i = K$). We must also account for the uncertainty
@@ -79,8 +79,8 @@ same factor, such as the probability of leaving remains the same,
 but $\alpha_i + \beta_i$ is equal to $C$ (Algorithm 2).
      
 ******
-<b>Algorithm 2:</b> Updating the beliefs based on the observed number
-    of pages per visit
+<b>Algorithm 2:</b> Updating the beliefs based on the observed
+session depth.
 ******
 <p style="white-space: pre; font-family: Monospace"
 >     1      <b>for</b> $i = 1$ <b>to</b> $K$ <b>do</b>
@@ -98,28 +98,28 @@ but $\alpha_i + \beta_i$ is equal to $C$ (Algorithm 2).
 ******
 
 The animation below shows running the model on 1000 visits,
-where the average number of pages per visit gradually decreases
+where the average session depth gradually decreases
 from 5 to 1. Note how the mean gradually and smoothly follows
 the trend, despite very noisy data. $C$ was set to 1000.
 
-<img style="width: 95%" src="/images/pages-per-visit/FAKE-1000.gif" />
+<img style="width: 95%" src="/images/session-depth/FAKE-1000.gif" />
 
 Obviously, we do not know the value of $C$ and want to infer
-$C$ for each campaign based on observed pages-per-visit counts. 
+$C$ for each campaign based on observed session depth counts. 
 The right value of $C$ is crucial for the best forecasting
 performance, notice how a smaller value of $C$ ($C=30$) affects
-prediction of the number of pages per visit on the same data:
+prediction of the session depth on the same data:
 
-<img style="width: 95%" src="/images/pages-per-visit/FAKE-30.gif" />
+<img style="width: 95%" src="/images/session-depth/FAKE-30.gif" />
 	
 We turn to [probabilistic programming](http://www.probabilistic-programming.org/wiki/Home) for this task, putting a
 prior on $C$ and running the inference on the history of
-pages-per-visit observations. We then infer the posterior
+session depth observations. We then infer the posterior
 distribution of $C$, and use the mean of the posterior for
 forecasting. An example of predicted $C$ values is in the
 histogram below.
 
-<img style="width: 95%" src="/images/pages-per-visit/FAKE-bandwidth.gif" />
+<img style="width: 95%" src="/images/session-depth/FAKE-bandwidth.gif" />
 
 ## Probabilistic programs
 
@@ -153,11 +153,11 @@ conditions the distribution of $C$ and updates
 beliefs of leaving the article at each page based on the data.
 Specifying the model in a data-agnostic way is possible but
 inference would becomes unreasonably inefficient.
-In our simple case, belief updating and drawing the number of
-pages per visit can luckily be disentangled --- the probability
+In our simple case, belief updating and drawing the session
+depth can luckily be disentangled — the probability
 of leaving the campaign at each page does not depend on the
 updated beliefs for earlier pages. However, we still need to pass
-the data twice --- both to the model and to inference.
+the data twice — both to the model and to inference.
 
 Edward supports both Metropolis-Hastings and [variational
 inference](https://en.wikipedia.org/wiki/Variational_Bayesian_methods). Metropolis-Hastings gave results consistent with the
@@ -165,7 +165,7 @@ Anglican implementation. One would expect static graph,
 C++-based implementation of Metropolis-Hastings to run much
 faster than in Anglican, however due to complex code having
 to go through tensor manipulations, the performance was quite
-poor --- Edward draws 10,000 samples in about 6 minutes, more than
+poor — Edward draws 10,000 samples in about 6 minutes, more than
 50 times slower than Anglican. At the time of writing, the
 implementation of variational inference in Edward has a
 limitation preventing its application to our model.
