@@ -10,7 +10,7 @@ draft: false
 A good part of today's internet content is created and shaped
 for delivering advertisements. Internet pages are interconnected
 by links, and a visitor is likely to open multiple pages from
-same publisher.  After a while, visitors leave the web site,
+the same publisher.  After a while, visitors leave the web site,
 either due to clicking on an advertisement or just because they
 get bored and switch to other content or activity.
 
