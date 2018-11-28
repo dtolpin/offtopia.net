@@ -14,7 +14,7 @@ the same publisher.  After a while, visitors leave the web site,
 either due to clicking on an advertisement or just because they
 get bored and switch to other content or activity.
 
-The probability distribution of the _session depth_ — the number
+The probability distribution of the _session depth_ — the  number
 of pages opened during a single visit — is an important metric
 for the publisher. It is used both to estimate revenues from the
 advertising campaign and to optimize the web site: links between
