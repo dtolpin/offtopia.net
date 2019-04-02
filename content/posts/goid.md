@@ -15,5 +15,4 @@ die](https://www.kingjamesbibleonline.org/Genesis-2-17/).
 
 In [Infergo](https://infergo.org/), I had to have
 goroutine-local storage. Here is how I got [efficient
-goroutine-local storage in Go:
-http://infergo.org.](http://infergo.org/)
+goroutine-local storage in Go](http://infergo.org/).
