@@ -6,10 +6,12 @@ draft: true
 ---
 
 Gaussian processes are great for time series forecasting. The
-time series does not have to be uniform --- 'missing data' is
+time series does not have to be regular --- 'missing data' is
 not an issue.  A kernel can be chosen to express trend,
 seasonality, various degrees of smoothness, non-stationarity.
-External predictors can be added as input dimensions.
+External predictors can be added as input dimensions. A prior
+can be chosen to provide a reasonable forecast when little
+or even no data is available.
 
 The only thing a Gaussian process does not deal well with is
 outliers. 
