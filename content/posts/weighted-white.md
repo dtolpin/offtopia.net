@@ -34,7 +34,7 @@ over an hour. Then, based on these measurements, a forecast of
 the visit value is computed. The forecast is the mean and the
 standard error of the average visit value at a future time.
 
-![Visit value forecasting with Gaussian process](gp-forecast.png)  
+![Visit value forecasting with Gaussian process](/images/weighted-white/gp-forecast.png)  
 **Figure 1. Visit value forecasting with Gaussian process**
 
 If the forecast is consistent, approximately 67% of future
@@ -97,7 +97,7 @@ observation weights. Figure 3 compares forecasting with fixed
 prediction gives much tighter confidence bounds, while still
 closely following the dynamics of the average visit value.
 
-![Visit value forecasting with weighted noise](weighted-gp-forecast.png)  
+![Visit value forecasting with weighted noise](/images/weighted-white/weighted-gp-forecast.png)  
 **Figure 3. Visit value forecasting with Gaussian process and weighted noise**
 
 This addition took only a couple dozen lines of code, including
