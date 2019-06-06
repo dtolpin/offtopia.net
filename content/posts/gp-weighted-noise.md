@@ -27,8 +27,8 @@ numbers of visitors over fixed time intervals.
 process](https://en.m.wikipedia.org/wiki/Gaussian_process) is a
 non-parameteric regression model in which the vector of values
 of the target variable in any finite combination of points
-follows the normal (Gaussian) distribution.  Formally, a
-Gaussian process defines a distribution over functions:
+follows the normal (Gaussian) distribution. A Gaussian process
+defines a distribution over functions:
 
 $$f \sim \mathcal{GP}(m(\cdot), k(\cdot, \cdot))$$
 
