@@ -86,7 +86,7 @@ shows the empirical means and the numbers of samples. Obviously,
 the empirical mean has higher variance at points with lower
 numbers of samples.
 
-![Empirical mean and numbers of samples](data.png)  
+![Empirical mean and numbers of samples](/images/weighted-white/series-visits.png)  
 **Figure 1. Empirical means and numbers of samples.**
 
 We implemented this 'weighted noise' trick for the
