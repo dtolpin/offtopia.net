@@ -10,8 +10,8 @@ observations are assumed to have the same noise. When this
 assumption does not hold, the forecasting accuracy degrades.
 Student's _t_-processes handle time series with varying noise
 better than Gaussian processes, but may be less convenient in
-application. In this article, we introduce a weighted noise
-kernel for the Gaussian process allowing to account for varying
+applications. In this article, we introduce a weighted noise
+kernel for Gaussian processes allowing to account for varying
 noise when the ratio between noise variances for different
 points is known, such as in the case when an observation is the
 sample mean of multiple samples, and the number of samples
