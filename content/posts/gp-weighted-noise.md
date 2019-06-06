@@ -45,10 +45,10 @@ standard deviation at each point of interest based on values of
 the target variable at the observed points. 
 
 Inference depends on the process kernel. Kernels can be combined
-by addition and multiplications, and most kernels are
+by addition and multiplication, and most kernels are
 parameterized by a small number of _hyperparameters_. The
 hyperparameters are inferred ('tuned'), e.g. by maximizing the
-likelihood of the training set.
+likelihood on the training set.
 
 
 ### White noise kernel
@@ -89,12 +89,12 @@ numbers of samples.
 ![Empirical mean and numbers of samples](/images/weighted-white/series-visits.png)  
 **Figure 1. Empirical means and numbers of samples.**
 
-We implemented this 'weighted noise' trick for the
+We implemented a weighted white noise kernel for the
 [scikit-learn](scikit-learn.org) version of Gaussian processes,
 using the
 [WhiteKernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.WhiteKernel.html)
 as the starting point and modifying the code to accept
-observation weights. Figure 2 compares forecasting with fixed
+observation weights. Figure 2 compares forecasting with uniform
 (orange) and weighted (green) noise. The weighted noise
 prediction gives much tighter confidence bounds, while still
 closely following the dynamics of the average visit value.
