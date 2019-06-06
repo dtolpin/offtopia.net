@@ -7,7 +7,7 @@ draft: true
 
 In Gaussian process regression for time series forecasting, all
 observations are assumed to have the same noise. When this
-assumption does not hold, the forecasting accuracy degrees.
+assumption does not hold, the forecasting accuracy degrades.
 Student's _t_-processes handle time series with varying noise
 better than Gaussian processes, but may be less convenient in
 application. In this article, we introduce a weighted noise
