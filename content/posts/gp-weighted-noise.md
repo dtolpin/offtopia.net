@@ -45,14 +45,22 @@ likelihood of the training set.
 
 ## White noise kernel
 
-To deal with noisy observations, a small constant $\sigma_n^2$ is customarily
-added to the diagonal of the covariance matrix:
+To deal with noisy observations, a small constant $\sigma_n^2$
+is customarily added to the diagonal of the covariance matrix:
 
 $$ $$
 
-The constant $\sigma_n^2$ is interpreted as the variance of normal zero-mean
-observation 
+The constant $\sigma_n^2$ is interpreted as the variance of
+observation noise, normally distributed with zero mean. Instead
+of adding the noise to the covariance matrix, a _white
+noise kernel_ can be added to the process kernel. The white
+noise kernel $k_{n}(\cdot, \cdot)$ is specified as:
 
+$$k_n(x, x') = \sigma_n^2 \text{ if } x \equiv x', 0 \mbox{ otherwise.}$$
+
+Here, $\equiv$ means that $x$ and $x'$ refer to the same point,
+rather than just to a pair of possibly different points with the
+same coordinates.
 
 # Weighted white noise kernel
 
@@ -63,5 +71,5 @@ observation
 # Case study
 
 The implementation of the weighted white kernel for scikit-learn
-used in the study
-is available at [http://github.com/dtolpin/weighted-white-kernel](http://github.com/dtolpin/weighted-white-kernel).
+used in the study is available at
+[http://github.com/dtolpin/weighted-white-kernel](http://github.com/dtolpin/weighted-white-kernel).
