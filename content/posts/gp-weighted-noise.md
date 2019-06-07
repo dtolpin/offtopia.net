@@ -63,7 +63,7 @@ The constant $\sigma_n^2$ is interpreted as the variance of
 observation noise, normally distributed with zero mean. Instead
 of adding the noise to the covariance matrix, a _white
 noise kernel_ term can be added to the process kernel. The white
-noise kernel $k_{n}(\cdot, \cdot)$ is specified as:
+noise kernel $k_n(\cdot, \cdot)$ is specified as:
 
 $$k_n(x, x') = \sigma_n^2 \text{ if } x \equiv x', 0 \mbox{ otherwise.}$$
 
@@ -90,7 +90,7 @@ variance factor, must be learned. This leads to the _weighted
 white noise kernel_:
 
 
-$$k_wn(x, x') = w(x) \sigma_n^2 \text{ if } x \equiv x', 0 \mbox{ otherwise.}$$
+$$k_{wn}(x, x') = w(x) \sigma_n^2 \text{ if } x \equiv x', 0 \mbox{ otherwise.}$$
 
 Here $w(x)$ is the noise weight of observation $x$, which in the
 case of empirical mean forecasting is the reciprocal of the
@@ -98,15 +98,17 @@ number of samples.
 
 ### Learning the noise
 
-The weighted white noise kernel $k_wn(\cdot, \cdot)$ still has a
-single hyperparameter $\sigma_n^2$. In addition to kernel
-itself, the derivative $k'_wn(\cdot, \cdot)$ of the kernel by the logarithm of the parameter is required:
+The weighted white noise kernel $k_{wn}(\cdot, \cdot)$, just like $k_n(\cdot, \cdot)$, has a single hyperparameter $\sigma_n^2$.
 
-$$k'_wn(x, x') = w(x)\sigma_n^2  \text{ if } x \equiv x', 0 \mbox{ otherwise.}$$
+In addition to the kernel itself, the derivative $k'_{wn}(\cdot, \cdot)$ of the kernel
+by $\log \sigma_n^2$ is required for learning the hyperparameter:
+
+$$k'_{wn}(x, x') = w(x)\sigma_n^2  \text{ if } x \equiv x', 0 \mbox{ otherwise.}$$
 
 ### Forecasting
 
-There two options for forecasting:
+There are two options for forecasting:
+
 1. The white noise is just ignored in forecasting (the true mean
    is forecast).
 2. The white noise is included (the empirical mean is forecast),
@@ -116,13 +118,13 @@ There two options for forecasting:
 
 It is tempting to adopt the first approach, however this breaks
 consistency with the unweighted kernel. A simple assumption in
-the second case is then that the average accuracy of
+the second case is that the average accuracy of
 observations in future data is the same as in the training data.
 This is tantamount to setting the noise weight of all future
 points to the harmonic mean of noise weights of the observed
 data:
 
-$$w^+ = \frac 1 \sum_x \frac 1 w(x)$$
+$$w^+ = \frac 1 {\sum\limits_x \frac 1 {w(x)}}$$
 
 The implementation in the case study uses the latter noise
 estimate.
