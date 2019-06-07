@@ -73,9 +73,59 @@ same coordinates.
 
 ## Weighted white noise kernel
 
+White noise kernel allows to learn the observation noise from
+data, but does that under the assumption that all observations
+have the same Gaussian noise. Approximating symmetric
+non-Gaussian noise with Gaussian noise will work sufficiently
+well in most cases (see the
+[Central limit theorem](https://en.m.wikipedia.org/wiki/Central_limit_theorem)), however observations with strongly varying noise will
+result in either overestimating the noise variance or
+overfitting the data.
+
+In certain important cases, such as the mentioned cases of
+forecasting the mean from observations of the empirical mean
+over varying sample sizes, the relative variance in each point
+can be accurately approximated, and only a single parameter, the
+variance factor, must be learned. This leads to the _weighted
+white noise kernel_:
+
+
+$$k_wn(x, x') = w(x) \sigma_n^2 \text{ if } x \equiv x', 0 \mbox{ otherwise.}$$
+
+Here $w(x)$ is the noise weight of observation $x$, which in the
+case of empirical mean forecasting is the reciprocal of the
+number of samples.
+
 ### Learning the noise
 
+The weighted white noise kernel $k_wn(\cdot, \cdot)$ still has a
+single hyperparameter $\sigma_n^2$. In addition to kernel
+itself, the derivative $k'_wn(\cdot, \cdot)$ of the kernel by the logarithm of the parameter is required:
+
+$$k'_wn(x, x') = w(x)\sigma_n^2  \text{ if } x \equiv x', 0 \mbox{ otherwise.}$$
+
 ### Forecasting
+
+There two options for forecasting:
+1. The white noise is just ignored in forecasting (the true mean
+   is forecast).
+2. The white noise is included (the empirical mean is forecast),
+   but cannot be known in advance unless the noise weights of
+   future observations are known (and in general the weights are
+   unknown).
+
+It is tempting to adopt the first approach, however this breaks
+consistency with the unweighted kernel. A simple assumption in
+the second case is then that the average accuracy of
+observations in future data is the same as in the training data.
+This is tantamount to setting the noise weight of all future
+points to the harmonic mean of noise weights of the observed
+data:
+
+$$w^+ = \frac 1 \sum_x \frac 1 w(x)$$
+
+The implementation in the case study uses the latter noise
+estimate.
 
 ## Case study
 
