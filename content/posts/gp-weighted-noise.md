@@ -122,9 +122,9 @@ the second case is that the average accuracy of
 observations in future data is the same as in the training data.
 This is tantamount to setting the noise weight of all future
 points to the harmonic mean of noise weights of the observed
-data:
+points $x_1, x_2, \dots, x_N$:
 
-$$w^+(\cdot) = \frac 1 {\sum\limits_x \frac 1 {w(x)}}$$
+$$w^+(\cdot) = \left( \frac 1 N {\sum\limits_{i=1}^N \frac 1 {w(x_i)}} \right)^{-1}$$
 
 The implementation in the case study uses the latter noise
 estimate.
