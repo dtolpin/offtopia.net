@@ -149,8 +149,12 @@ as the starting point and modifying the code to accept
 observation weights. Figure 2 compares forecasting with uniform
 (orange) and weighted (green) noise. The weighted noise
 kernel gives much tighter confidence bounds, while still
-closely following the dynamics of the average visit value. Two
-examples where weighted noise kernel noticeably improves
+closely following the dynamics of the average visit value.
+
+![Visit value forecasting with weighted noise](/images/weighted-white/weighted-gp-forecast.svg)  
+**Figure 2. Forecasting with uniform and weighted noise.**
+
+Two examples where weighted noise kernel noticeably improves
 forecasting are hours $23$ and $44$, marked in red on the plot. In
 both cases, weighted forecast (green) is closer to the empirical
 mean (and to the apparent true mean). Unweighted noise forecast
@@ -158,9 +162,6 @@ is disturbed by noisy observations during hours $20--22$, either
 immediately preceding the forecast ($23$), or influencing the
 forecast through the daily seasonal component of the kernel
 ($44$).
-
-![Visit value forecasting with weighted noise](/images/weighted-white/weighted-gp-forecast.svg)  
-**Figure 2. Forecasting with uniform and weighted noise.**
 
 The implementation of the weighted white kernel for scikit-learn
 used in the study is available at
