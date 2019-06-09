@@ -124,7 +124,7 @@ This is tantamount to setting the noise weight of all future
 points to the harmonic mean of noise weights of the observed
 data:
 
-$$w^+ = \frac 1 {\sum\limits_x \frac 1 {w(x)}}$$
+$$w^+(\cdot) = \frac 1 {\sum\limits_x \frac 1 {w(x)}}$$
 
 The implementation in the case study uses the latter noise
 estimate.
