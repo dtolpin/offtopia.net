@@ -138,7 +138,7 @@ shows the empirical means and the numbers of samples. Obviously,
 the empirical mean has higher variance at points with lower
 numbers of samples.
 
-![Empirical mean and numbers of samples](/images/weighted-white/series-visits.png)  
+![Empirical mean and numbers of samples](/images/weighted-white/series-visits.svg)  
 **Figure 1. Empirical means and numbers of samples.**
 
 We implemented a weighted white noise kernel for the
@@ -148,10 +148,18 @@ using the
 as the starting point and modifying the code to accept
 observation weights. Figure 2 compares forecasting with uniform
 (orange) and weighted (green) noise. The weighted noise
-prediction gives much tighter confidence bounds, while still
-closely following the dynamics of the average visit value.
+kernel gives much tighter confidence bounds, while still
+closely following the dynamics of the average visit value. Two
+examples where weighted noise kernel noticeably improves
+forecasting are hours $23$ and $44$, marked in red on the plot. In
+both cases, weighted forecast (green) is closer to the empirical
+mean (and to the apparent true mean). Unweighted noise forecast
+is disturbed by noisy observations during hours $20--22$, either
+immediately preceding the forecast ($23$), or influencing the
+forecast through the daily seasonal component of the kernel
+($44$).
 
-![Visit value forecasting with weighted noise](/images/weighted-white/weighted-gp-forecast.png)  
+![Visit value forecasting with weighted noise](/images/weighted-white/weighted-gp-forecast.svg)  
 **Figure 2. Forecasting with uniform and weighted noise.**
 
 The implementation of the weighted white kernel for scikit-learn
