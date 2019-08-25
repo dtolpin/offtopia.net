@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="512" height="512" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+    <clipPath id="yang">
+	  <path d="
+	     M 256 2 
+		 A 126 126 0 0 1 256 256
+		 A 126 126 0 0 0 256 510
+	     A 252 252 0 0 1 256 0 Z"/>
+	</clipPath>
+	<clipPath id="yin">
+	  <path d="
+	     M 256 2 
+		 A 126 126 0 0 1 256 256
+		 A 126 126 0 0 0 256 510
+	     A 252 252 0 0 0 256 0 Z"/>
+    </clipPath>
+
+  <path d="M 256 0
+    A 128 128 0 0 1 256 256
+	A 128 128 0 0 0 256 512
+	A 256 256 0 0 1 256 0 Z" fill="white" stroke="black" stroke-width="4"/>
+  <path d="M 256 0
+    A 128 128 0 0 1 256 256
+	A 128 128 0 0 0 256 512
+	A 256 256 0 0 0 256 0 Z" fill="black" stroke="white" stroke-width="4"/>
+  <circle cx="256" cy="128" r="32" fill="black" clip-path="url(#yang)">
+	  <animate attributeName="r" from="1" to="768"
+			dur="16s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="256" cy="128" r="32" fill="white" clip-path="url(#yang)">
+	  <animate attributeName="r" from="-383" to="384"
+			dur="16s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="256" cy="384" r="32" fill="white" clip-path="url(#yin)">
+	  <animate attributeName="r" from="1" to="768"
+			   dur="16s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="256" cy="384" r="32" fill="black" clip-path="url(#yin)">
+	  <animate attributeName="r" from="-383" to="384"
+			   dur="16s" repeatCount="indefinite"/>
+  </circle>
+
+
+  <circle cx="256" cy="256" r="254" stroke="black" fill="none" stroke-width="4"/>
+
+</svg>
