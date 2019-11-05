@@ -20,3 +20,7 @@ paginatePath = "page"
     url = "/about/"
     name = "About"
     weight = 2
+[[menu.main]]
+	url = "/academic/"
+	name = "Academic"
+	weight = 3
