@@ -2,7 +2,7 @@
 title: "There Are No Outliers"
 subtitle: "Gaussian process regression with varying noise"
 date: 2019-06-03T17:39:28+03:00
-draft: true
+draft: false
 ---
 
 Gaussian processes are great for time series forecasting. The
