@@ -1,5 +1,5 @@
 ---
-title: "BDA model too tough for Stan"
+title: "BDA Model Too Tough for Stan"
 subtitle: "Estimating the population of NY state from sample summaries"
 date: 2020-08-29T18:00:54+03:00
 draft: False
