@@ -110,20 +110,20 @@ a value uniformly from the range of values in the quantile:
 
 {{<highlight go>}}
 func RandQuantile(q [][2]float64) float64 {
-var p, z float64
-for {
-	p = rand.ExpFloat64()
-	if p < 1 {
-		break
+	var p, z float64
+	for {
+		p = rand.ExpFloat64()
+		if p < 1 {
+			break
+		}
 	}
-}
-for i := 1; i != len(q); i++ {
-	if q[i][0] >= p {
-		z = q[i-1][1] + rand.Float64()*(q[i][1]-q[i-1][1])
-		break
+	for i := 1; i != len(q); i++ {
+		if q[i][0] >= p {
+			z = q[i-1][1] + rand.Float64()*(q[i][1]-q[i-1][1])
+			break
+		}
 	}
-}
-return z
+	return z
 }
 {{</highlight>}}
 
