@@ -23,7 +23,7 @@ publications on probabilistic programming:
 
 * Deployable probabilistic programming [acm](https://dl.acm.org/citation.cfm?id=3359727), [arxiv](https://arxiv.org/abs/1906.11199)
 * Design and implementation of probabilistic programming language Anglican [acm](https://dl.acm.org/citation.cfm?id=3064910), [arxiv](https://arxiv.org/abs/1608.05263)
-* Black-box policy search with probabilistic programs [jmlr](http://proceedings.mlr.press/v51/vandemeent16.html)
+* Black-box policy search with probabilistic programs [pmlr](http://proceedings.mlr.press/v51/vandemeent16.html)
 
 ## Ongoing projects
 
