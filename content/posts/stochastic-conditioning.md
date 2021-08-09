@@ -15,12 +15,12 @@ probabilistic programs follow the Bayesian generative pattern:
 	\end{aligned}
 \end{equation}
 
-* A prior is imposed on the latent variable x. 
-* Then, observations y are drawn from a distribution conditioned
-on x.
+* A prior is imposed on the latent variable $x$. 
+* Then, observations $y$ are drawn from a distribution conditioned
+on $x$.
 
 The program and the observations are passed to an inference
-algorithm which infers the posterior of latent variable x.
+algorithm which infers the posterior of latent variable $x$.
 
 The questions is: what is observed?
 
@@ -49,7 +49,7 @@ Existing probabilistic programming frameworks cannot represent
 such cases straighforwardly.
 
 To address this problem, we propose to generalize deterministic
-conditioning $x|y=y0$ on values to stochastic conditioning $x|y
+conditioning $x|y=y_0$ on values to stochastic conditioning $x|y
 \sim D_0$ on distributions.
 
 Formally, a probabilistic program with stochastic conditioning
