@@ -11,7 +11,7 @@ probabilistic programs follow the Bayesian generative pattern:
 \begin{equation}
 	\begin{aligned}
 		x & \sim \mathrm{Prior} \\\\
-		y & \sim \mathrm{Conditonal}(x)
+		y & \sim \mathrm{Conditional}(x)
 	\end{aligned}
 \end{equation}
 
