@@ -102,7 +102,7 @@ where the average session depth gradually decreases
 from 5 to 1. Note how the mean gradually and smoothly follows
 the trend, despite very noisy data. $C$ was set to 1000.
 
-<img style="width: 95%" src="/images/session-depth/FAKE-1000.gif" />
+![1000](/images/session-depth/FAKE-1000.gif)
 
 Obviously, we do not know the value of $C$ and want to infer
 $C$ for each campaign based on observed session depth counts. 
@@ -110,7 +110,7 @@ The right value of $C$ is crucial for the best forecasting
 performance, notice how a smaller value of $C$ ($C=30$) affects
 prediction of the session depth on the same data:
 
-<img style="width: 95%" src="/images/session-depth/FAKE-30.gif" />
+![30](/images/session-depth/FAKE-30.gif)
 	
 We turn to [probabilistic programming](http://www.probabilistic-programming.org/wiki/Home) for this task, putting a
 prior on $C$ and running the inference on the history of
@@ -119,7 +119,7 @@ distribution of $C$, and use the mean of the posterior for
 forecasting. An example of predicted $C$ values is in the
 histogram below.
 
-<img style="width: 95%" src="/images/session-depth/FAKE-bandwidth.gif" />
+![bandwidth](/images/session-depth/FAKE-bandwidth.gif)
 
 ## Probabilistic programs
 
