@@ -6,7 +6,7 @@ draft: False
 ---
 
 Thanks to the
-[plague(https://en.wikipedia.org/wiki/COVID-19_pandemic), we
+[plague](https://en.wikipedia.org/wiki/COVID-19_pandemic), we
 teach over [Zoom](http://zoom.us/), and have our lectures
 recorded. Many students do not attend in real time and instead
 replay the recordings at their convenience, and at **2x speed**.
