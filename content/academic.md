@@ -25,6 +25,11 @@ publications on probabilistic programming:
 * Design and implementation of probabilistic programming language Anglican [acm](https://dl.acm.org/citation.cfm?id=3064910), [arxiv](https://arxiv.org/abs/1608.05263)
 * Black-box policy search with probabilistic programs [pmlr](http://proceedings.mlr.press/v51/vandemeent16.html)
 
+## Teaching
+
+* Applied Bayesian Data Analysis --- [course site](https://bgu-abda.bitbucket.io/), [recorded lectures](https://www.youtube.com/watch?v=zmVzOcgiXjA&list=PLyCpIuhZg8qCPIJNa9SQ65sfsBmiBaMqz).
+* Applications of Mathematics in Computer Science --- [course site](https://www.cs.bgu.ac.il/~macs211/Main), [recorded lectures](https://www.youtube.com/watch?v=bVHMWIhd22U&list=PLyCpIuhZg8qA1MQrAqnqAvXJrvLSFbxF6).
+
 ## Ongoing projects
 
 * [Infergo](http://infergo.org/) --- a probabilistic programming
