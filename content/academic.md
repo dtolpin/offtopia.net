@@ -2,7 +2,9 @@
 title: "Academic"
 ---
 
-I am a faculty member of the Computer Science department at the Ben-Gurion University of the Negev, Israel.
+From 2019 to 2022 I was a faculty member of the Computer Science
+department at the Ben-Gurion University of the Negev, Israel.
+Not anymore, but who knows what is around the corner.
 
 ## Research interests
 
