@@ -14,3 +14,6 @@
 	path = themes/offtopia
 	url = git@github.com:dtolpin/hugo-theme-offtopia.git
 	branch = master
+[submodule "themes/bootstrap4-blog"]
+	path = themes/bootstrap4-blog
+	url = git@github.com:alanorth/hugo-theme-bootstrap4-blog.git
