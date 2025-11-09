@@ -25,7 +25,7 @@ pagination.pageSize = 5
 	name = "Infergo"
 	weight = 4
 [[menu.sidebar]]
-	url = "https://offtopia.net/wp/"
+	url = "http://offtopia.net/wp/"
 	name = "Old blog"
 	weight = 5
 
