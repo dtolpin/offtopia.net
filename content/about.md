@@ -10,7 +10,7 @@ Offtopia is a non-personal blog of David Tolpin.
 
 ## Work
 
-* [PUB+](http://pubplus.com/)
+* [2K](https://2k.com/)
 
 ## Contact
 

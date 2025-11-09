@@ -1,26 +1,37 @@
-baseURL = "http://dtolpin.github.io/"
+baseURL = "https://dtolpin.github.io/"
 languageCode = "en-us"
 title = "Offtopia — nothing personal"
 theme = "offtopia"
-pygmentsStyle = "friendly"
 
 # Pagination
-paginate = 3
-paginatePath = "page"
+summaryLength = 50
+pagination.pageSize = 5
 
-[taxonomies]
-  tag = "tags"
-  category = "categories"
+[permalinks]
+	posts = "/:year/:month/:title/"
+	page = "/:slug/"
 
-[params]
-    mainSections = ["posts"]
-    author = "David Tolpin"
-
-[[menu.main]]
+[[menu.navbar]]
     url = "/about/"
     name = "About"
     weight = 2
-[[menu.main]]
+[[menu.navbar]]
 	url = "/academic/"
 	name = "Academic"
 	weight = 3
+
+[[menu.sidebar]]
+	url = "https://infergo.org/"
+	name = "Infergo"
+	weight = 4
+[[menu.sidebar]]
+	url = "https://offtopia.net/wp/"
+	name = "Old blog"
+	weight = 5
+
+[params]
+    author = "David Tolpin"
+    date_format = "Mon Jan 02, 2006"
+
+	[params.sidebar]
+	placeholder = "" # otherwise does not display recent posts

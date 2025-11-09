@@ -2,9 +2,11 @@
 title: "Academic"
 ---
 
-From 2019 to 2022 I was a faculty member of the Computer Science
+I am a visiting faculty member of the Computer Science
 department at the Ben-Gurion University of the Negev, Israel.
-Not anymore, but who knows what is around the corner.
+This means that I advise research students and collaborate on
+research, but am not get paid by the university. Everyone is
+happy.
 
 ## Research interests
 
@@ -30,8 +32,10 @@ publications on probabilistic programming:
 
 ## Teaching
 
+From 2019 to 2021, I had taught two courses at the department.
+
 * Applied Bayesian Data Analysis --- [course site](https://bgu-abda.bitbucket.io/), [recorded lectures](https://www.youtube.com/watch?v=zmVzOcgiXjA&list=PLyCpIuhZg8qCPIJNa9SQ65sfsBmiBaMqz).
-* Applications of Mathematics in Computer Science --- [course site](https://www.cs.bgu.ac.il/~macs211/Main), [recorded lectures](https://www.youtube.com/watch?v=bVHMWIhd22U&list=PLyCpIuhZg8qA1MQrAqnqAvXJrvLSFbxF6).
+* Applications of Mathematics in Computer Science --- [course site](https://bgu-macs.bitbucket.io/), [recorded lectures](https://www.youtube.com/watch?v=bVHMWIhd22U&list=PLyCpIuhZg8qA1MQrAqnqAvXJrvLSFbxF6).
 
 ## Ongoing projects
 
