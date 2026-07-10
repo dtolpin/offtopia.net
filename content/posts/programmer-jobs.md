@@ -2,7 +2,7 @@
 title: Programmer Jobs
 subtitle: LLM generated code is as bad as most programmers can write
 date: 2025-11-07T13:59:33+03:00
-draft: True
+draft: False
 ---
 
 Nothing bad is happening to programmer jobs. there was a programming job
