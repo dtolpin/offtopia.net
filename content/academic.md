@@ -2,11 +2,8 @@
 title: "Academic"
 ---
 
-I am a visiting faculty member of the Computer Science
+In years 2019-2025 I was a visiting faculty member of the Computer Science
 department at the Ben-Gurion University of the Negev, Israel.
-This means that I advise research students and collaborate on
-research, but am not get paid by the university. Everyone is
-happy.
 
 ## Research interests
 
