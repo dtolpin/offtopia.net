@@ -2,7 +2,7 @@
 title: "Academic"
 ---
 
-In years 2019-2025 I was a visiting faculty member of the Computer Science
+In years 2019–2025 I was a visiting faculty member of the Computer Science
 department at the Ben-Gurion University of the Negev, Israel.
 
 ## Research interests
@@ -19,7 +19,7 @@ hand.
 ## Publications
 
 My publications are on [Google
-scholar](http://scholar.google.com/citations?user=di9-aTh2Qk0C).  Some recent
+scholar](http://scholar.google.com/citations?user=di9-aTh2Qk0C).  Some
 publications on probabilistic programming:
 
 * Probabilistic programs with stochastic conditioning [pmlr](http://proceedings.mlr.press/v139/tolpin21a.html), [arxiv](https://arxiv.org/abs/2010.00282)
@@ -34,7 +34,7 @@ From 2019 to 2021, I had taught two courses at the department.
 * Applied Bayesian Data Analysis --- [course site](https://bgu-abda.bitbucket.io/), [recorded lectures](https://www.youtube.com/watch?v=zmVzOcgiXjA&list=PLyCpIuhZg8qCPIJNa9SQ65sfsBmiBaMqz).
 * Applications of Mathematics in Computer Science --- [course site](https://bgu-macs.bitbucket.io/), [recorded lectures](https://www.youtube.com/watch?v=bVHMWIhd22U&list=PLyCpIuhZg8qA1MQrAqnqAvXJrvLSFbxF6).
 
-## Ongoing projects
+## Past and ongoing projects
 
 * [Infergo](http://infergo.org/) --- a probabilistic programming
   facility in Go.
